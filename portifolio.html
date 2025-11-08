@@ -144,33 +144,35 @@ document.addEventListener("DOMContentLoaded", () => {
     </nav>
 
       <!-- Container para linha e seletor de idioma -->
-    <div class="flex items-center gap-4">
-      <!-- Linha divisória (apenas desktop) -->
-      <div class="hidden md:block h-6 w-px bg-border-light dark:bg-border-dark"></div>
-      
-      <!-- Seletor de idioma -->
-      <div class="relative" x-data="{ open: false, currentLanguage: 'PT' }">
-        <button @click="open = !open" class="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors" type="button">
-          <span class="material-symbols-outlined !text-xl">language</span>
-          <span x-text="currentLanguage">PT</span>
-          <span class="material-symbols-outlined !text-xl transition-transform" :class="{ 'rotate-180': open }">expand_more</span>
-        </button>
-        
-        <div x-show="open" 
-             x-transition
-             @click.outside="open = false"
-             class="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-background-light dark:bg-background-dark shadow-lg ring-1 ring-black dark:ring-white ring-opacity-5 dark:ring-opacity-10 focus:outline-none py-1 z-50"
-             x-cloak>
-          <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50" href="#" @click="changeLanguage('pt', 'PT'); open = false;">Português</a>
-          <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50" href="#" @click="changeLanguage('fr', 'FR'); open = false;">Français</a>
-          <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50" href="#" @click="changeLanguage('en', 'EN'); open = false;">English</a>
-          <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50" href="#" @click="changeLanguage('es', 'ES'); open = false;">Español</a>
-          <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50" href="#" @click="changeLanguage('zh-CN', '中文'); open = false;">中文</a>
-          <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50" href="#" @click="changeLanguage('ar', 'العربية'); open = false;">العربية</a>
-        </div>
-      </div>
+<div class="flex items-center gap-4">
+  <!-- Linha divisória (apenas desktop) -->
+  <div class="hidden md:block h-6 w-px bg-border-light dark:bg-border-dark"></div>
+  
+  <!-- Seletor de idioma -->
+  <div class="relative" x-data="{ open: false, currentLanguage: 'EN' }">
+    <button @click="open = !open" class="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors" type="button">
+      <!-- Ícone de linguagem protegido -->
+      <span class="material-symbols-outlined !text-xl notranslate" translate="no">language</span>
+      <span x-text="currentLanguage">EN</span>
+      <!-- Ícone expandir protegido -->
+      <span class="material-symbols-outlined !text-xl transition-transform notranslate" translate="no" :class="{ 'rotate-180': open }">expand_more</span>
+    </button>
+    
+    <div x-show="open" 
+         x-transition
+         @click.outside="open = false"
+         class="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-background-light dark:bg-background-dark shadow-lg ring-1 ring-black dark:ring-white ring-opacity-5 dark:ring-opacity-10 focus:outline-none py-1 z-50"
+         x-cloak>
+      <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50 notranslate" translate="no" href="#" @click="changeLanguage('pt', 'PT'); open = false;">Português</a>
+      <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50 notranslate" translate="no" href="#" @click="changeLanguage('fr', 'FR'); open = false;">Français</a>
+      <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50 notranslate" translate="no" href="#" @click="changeLanguage('en', 'EN'); open = false;">English</a>
+      <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50 notranslate" translate="no" href="#" @click="changeLanguage('es', 'ES'); open = false;">Español</a>
+      <a class="block px-4 py-2 text-sm text-text-light dark:text:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50 notranslate" translate="no" href="#" @click="changeLanguage('zh-CN', '中文'); open = false;">中文</a>
+      <a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50 notranslate" translate="no" href="#" @click="changeLanguage('ar', 'العربية'); open = false;">العربية</a>
     </div>
   </div>
+</div>
+</div>
 </header>
 
 <!-- Widget do Google Translate -->
@@ -193,6 +195,9 @@ function googleTranslateElementInit() {
 function changeLanguage(lang, displayName) {
   console.log('Mudando para idioma:', lang);
   
+  // Proteger elementos com ícones antes da tradução
+  protectIcons();
+  
   // Método direto usando o seletor do Google Translate
   const select = document.querySelector('.goog-te-combo');
   if (select) {
@@ -214,6 +219,26 @@ function changeLanguage(lang, displayName) {
   // Salvar preferência no localStorage
   localStorage.setItem('preferredLanguage', lang);
   localStorage.setItem('languageDisplay', displayName);
+  
+  // Reaplicar proteção após tradução
+  setTimeout(protectIcons, 500);
+}
+
+// Função para proteger todos os ícones
+function protectIcons() {
+  // Proteger ícones do Material Symbols
+  const materialIcons = document.querySelectorAll('.material-symbols-outlined');
+  materialIcons.forEach(icon => {
+    icon.classList.add('notranslate');
+    icon.setAttribute('translate', 'no');
+  });
+  
+  // Proteger outros elementos que não devem ser traduzidos
+  const noTranslateElements = document.querySelectorAll('[class*="icon"], [class*="Icon"]');
+  noTranslateElements.forEach(element => {
+    element.classList.add('notranslate');
+    element.setAttribute('translate', 'no');
+  });
 }
 
 // Método alternativo para recriar o widget
@@ -237,6 +262,8 @@ function recreateTranslateWidget(lang) {
       select.value = lang;
       select.dispatchEvent(new Event('change'));
     }
+    // Reaplicar proteção
+    setTimeout(protectIcons, 500);
   }, 1000);
 }
 
@@ -270,6 +297,8 @@ function restoreLanguagePreference() {
         select.value = savedLang;
         select.dispatchEvent(new Event('change'));
       }
+      // Proteger ícones após restaurar idioma
+      setTimeout(protectIcons, 500);
     }, 2000);
   }
 }
@@ -278,6 +307,23 @@ function restoreLanguagePreference() {
 document.addEventListener('DOMContentLoaded', function() {
   loadGoogleTranslate();
   restoreLanguagePreference();
+  
+  // Proteger ícones imediatamente
+  protectIcons();
+  
+  // Monitorar mudanças no DOM para proteger novos ícones
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList') {
+        protectIcons();
+      }
+    });
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
   
   // Esconder elementos visuais do Google Translate
   const hideGTranslate = setInterval(() => {
@@ -320,7 +366,6 @@ setTimeout(() => {
   }
 }, 3000);
 </script>
-
 
         
   </div>
@@ -450,4 +495,5 @@ setTimeout(() => {
 
 </body>
 </html>
+
 
