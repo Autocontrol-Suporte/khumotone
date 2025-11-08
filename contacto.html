@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact - KHUMOTONE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
+
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0072FF",
+            "background-light": "#FDFDF",
+            "background-dark": "#333333",
+          },
+          fontFamily: {
+            "display": ["Manrope"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style type="text/tailwindcss">
+    @layer base {
+      body {
+        @apply font-display bg-background-light dark:bg-background-dark text-[#333333] dark:text-[#f8f7f6];
+      }
+    }
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+
+<style>
+/* === Hover personalizado === */
+.nav-link {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: #0072FF !important;
+}
+
+/* === Estilo do botão hamburguer === */
+#menu-toggle .bar {
+  display: block;
+  width: 1.5rem; /* equivalente a w-6 */
+  height: 2px;   /* equivalente a h-0.5 */
+  background-color: #333333; /* cor fixa agora aplicada */
+  transition: background-color 0.3s ease;
+}
+
+/* === Responsividade e animação === */
+@media (max-width: 768px) {
+  #mobile-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #mobile-menu.show {
+    display: flex !important;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<script>
+// Executa o script após o carregamento da página
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  toggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("show");
+  });
+});
+</script>
+
+</head>
+<body>
+
+<header class="sticky top-0 z-50 flex w-full items-center justify-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
+  <div class="flex items-center justify-between w-full max-w-6xl px-4 py-4">
+    <!-- Logo -->
+    <div class="flex items-center gap-3 text-[#333333]">
+      <img 
+        src="logo2.png" 
+        alt="Logotipo KHUMOTONE" 
+        class="h-8 w-auto object-contain"
+      >
+    </div>
+
+    <!-- Botão hamburguer -->
+    <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 cursor-pointer" aria-label="Abrir menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Menu de navegação (desktop) -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-sm font-semibold nav-link text-[#333333]" href="index.html">Home</a>
+      <a class="text-sm font-semibold nav-link text-[#333333]" href="sobre.html">About Us</a>
+      <a class="text-sm font-semibold nav-link text-[#333333]" href="contacto.html">Contact</a>
+      <a class="text-sm font-semibold nav-link text-[#333333]" href="contratos.html">documents</a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+<!-- Menu mobile -->
+<nav id="mobile-menu" class="hidden flex-col items-center gap-4 bg-background-light dark:bg-background-dark border-t border-border-light dark:border-border-dark py-4 md:hidden">
+  <a class="text-sm font-semibold nav-link text-[#333333]" href="index.html">Home</a>
+  <a class="text-sm font-semibold nav-link text-[#333333]" href="sobre.html">About Us</a>
+  <a class="text-sm font-semibold nav-link text-[#333333]" href="contacto.html">Contact</a>
+  <a class="text-sm font-semibold nav-link text-[#333333]" href="contratos.html">documents</a>
+</nav>
+
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden" style='font-family: Manrope, "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-container flex h-full grow flex-col">
+
+
+
+<main class="flex flex-col items-center py-16 md:py-24 px-4 text-center gap-12">
+<div class="flex flex-col items-center gap-3 max-w-2xl">
+  <p class="text-[#333333] dark:text-[#f8f7f6] text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">
+    Get in Touch
+
+  </p>
+  <p class="text-[#43464B] dark:text-[#f8f7f6]/70 text-base font-normal leading-normal">
+    Our team is ready to discuss partnerships, supply, and new business opportunities.
+Get in touch with us through the channels below.
+
+  </p>
+</div>
+
+<div class="flex w-full max-w-3xl justify-center">
+  <div class="flex flex-1 gap-3 flex-wrap px-4 py-3 justify-center">
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/+244926849260" target="_blank"
+      class="flex min-w-[150px] gap-2 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] grow hover:bg-opacity-90">
+      <span class="material-symbols-outlined notranslate" translate="no">call</span>
+      <span class="truncate">WhatsApp</span>
+    </a>
+
+    <!-- WeChat -->
+    <a href="qr.html" target="_blank"
+      class="flex min-w-[150px] gap-2 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] grow hover:bg-opacity-90">
+      <span class="material-symbols-outlined notranslate" translate="no">chat</span>
+      <span class="truncate notranslate" translate="no">WeChat</span>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/company/khumotonecobre/" target="_blank"
+      class="flex min-w-[150px] gap-2 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] grow hover:bg-opacity-90">
+      <span class="material-symbols-outlined notranslate" translate="no">group</span>
+      <span class="truncate notranslate" translate="no">LinkedIn</span>
+    </a>
+
+    <!-- E-mail -->
+    <a href="mailto:general@khumotone.com" target="_blank"
+      class="flex min-w-[150px] gap-2 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] grow hover:bg-opacity-90">
+      <span class="material-symbols-outlined notranslate" translate="no">mail</span>
+      <span class="truncate notranslate" translate="no">E-mail</span>
+    </a>
+
+  </div>
+</div>
+
+
+<div class="w-full max-w-3xl flex flex-col gap-6 pt-8">
+<h4 class="text-[#43464B] dark:text-[#f8f7f6]/70 text-sm font-bold leading-normal tracking-[0.015em] px-4 py-2 text-center">Additional Information</h4>
+<div class="p-4 grid grid-cols-1 md:grid-cols-[20%_1fr] gap-x-6 w-full">
+<div class="col-span-1 md:col-span-2 grid grid-cols-subgrid border-t border-t-primary/20 dark:border-t-primary/30 py-5 text-center md:text-left">
+<p class="text-[#43464B] dark:text-[#f8f7f6]/70 text-sm font-normal leading-normal">Corporate Email</p>
+<a href="mailto:general@khumotone.com" class="text-[#333333] dark:text-[#f8f7f6] text-sm font-normal leading-normal hover:text-primary dark:hover:text-primary cursor-pointer">
+  general@khumotone.com
+</a>
+
+</div>
+<div class="col-span-1 md:col-span-2 grid grid-cols-subgrid border-t border-t-primary/20 dark:border-t-primary/30 py-5 text-center md:text-left">
+<p class="text-[#43464B] dark:text-[#f8f7f6]/70 text-sm font-normal leading-normal">Address</p>
+<p class="text-[#333333] dark:text-[#f8f7f6] text-sm font-normal leading-normal">Immeuble Botour 4eme NiveauLocal 11 - Gombé Kinshasa-RDC</p>
+</div>
+</div>
+</div>
+</main>
+
+</div>
+</div>
+</div>
+</div>
+
+<footer class="w-full bg-gray-100 dark:bg-gray-800/30 border-t border-border-light dark:border-border-dark">
+  <div class="max-w-6xl mx-auto py-8 px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
+    <p class="text-sm text-[#71797E]">© 2025 KHUMOTONE. All rights reserved.</p>
+    <div class="flex items-center gap-4">
+      <a class="text-sm text-[#71797E] hover:text-primary transition-colors" href="termos.html">Terms of Service</a>
+      <a class="text-sm text-[#71797E] hover:text-primary transition-colors" href="politicas.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+
+</body></html>

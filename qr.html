@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KHUMOTONE - WeChat Contact</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
+<style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-display {
+            font-family: 'Manrope', 'Noto Sans', sans-serif;
+        }
+    </style>
+
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#333333",
+            "background-light": "#f7f7f7",
+            "background-dark": "#1a1a1a",
+            "card-light": "#ffffff",
+            "card-dark": "#2c2c2c",
+            "text-light": "#212529",
+            "text-dark": "#e5e7eb",
+            "text-secondary-light": "#6c757d",
+            "text-secondary-dark": "#9ca3af",
+          },
+          borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+        },
+      },
+    }
+    
+  </script>
+
+<style>
+.nav-link {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: #0072FF !important;
+}
+
+@media (max-width: 768px) {
+  #mobile-menu.show {
+    display: flex !important;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  toggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("show");
+  });
+});
+</script>
+
+</head>
+<body class="font-display">
+
+
+  <div class="layout-container flex h-full grow flex-col">
+<header class="sticky top-0 z-50 flex w-full items-center justify-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
+  <div class="flex items-center justify-between w-full max-w-6xl px-4 py-4">
+    <div class="flex items-center gap-3">
+      <img 
+        src="logo2.png" 
+        alt="KHUMOTONE Logo" 
+        class="h-8 w-auto object-contain"
+      >
+    </div>
+
+    <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 cursor-pointer" aria-label="Open menu">
+      <span class="block w-6 h-0.5 bg-text-light dark:bg-text-dark"></span>
+      <span class="block w-6 h-0.5 bg-text-light dark:bg-text-dark"></span>
+      <span class="block w-6 h-0.5 bg-text-light dark:bg-text-dark"></span>
+    </button>
+
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-sm font-semibold nav-link" href="index.html" style="color: #333333;">Home</a>
+      <a class="text-sm font-semibold nav-link" href="sobre.html" style="color: #333333;">About Us</a>
+      <a class="text-sm font-semibold nav-link" href="contacto.html" style="color: #333333;">Contact</a>
+      <a class="text-sm font-semibold nav-link text-[#333333]" href="contratos.html">documents</a>
+    </nav>
+  </div>
+</header>
+
+<nav id="mobile-menu" class="hidden flex-col items-center gap-4 bg-background-light dark:bg-background-dark border-t border-border-light dark:border-border-dark py-4 md:hidden">
+  <a class="text-sm font-semibold nav-link" href="index.html" style="color: #333333;">Home</a>
+  <a class="text-sm font-semibold nav-link" href="sobre.html" style="color: #333333;">About Us</a>
+  <a class="text-sm font-semibold nav-link" href="contacto.html" style="color: #333333;">Contact</a>
+  <a class="text-sm font-semibold nav-link text-[#333333]" href="contratos.html">documents</a>
+</nav>
+
+
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+
+
+
+<main class="flex flex-1 items-center justify-center py-10 sm:py-20">
+<div class="p-4 w-full max-w-lg">
+<div class="flex flex-col items-center justify-start rounded-xl shadow-lg bg-card-light dark:bg-card-dark border border-gray-200/50 dark:border-gray-700/50 text-center p-8 sm:p-12">
+<h1 class="text-2xl sm:text-3xl font-bold text-primary mb-4">Connect With Us on WeChat</h1>
+<div class="w-full max-w-[280px] bg-center bg-no-repeat aspect-square bg-cover rounded-lg my-6" data-alt="QR Code for KHUMOTONE WeChat contact" style='background-image: url("qr.jpg");'></div>
+<div class="flex items-center gap-3 text-text-secondary-light dark:text-text-secondary-dark mt-2">
+<span class="material-symbols-outlined text-xl text-primary">qr_code_scanner</span>
+<p class="text-base font-normal leading-relaxed">Open the WeChat app and scan the QR code above to add our contact.</p>
+</div>
+</div>
+</div>
+</main>
+
+<footer class="flex flex-col gap-6 px-5 py-10 text-center">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">© 2025 KHUMOTONE. All rights reserved.</p>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
