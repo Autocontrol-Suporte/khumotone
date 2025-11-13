@@ -194,7 +194,7 @@
             <button @click="open = !open" class="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors" type="button">
               <!-- Ícone de linguagem protegido -->
               <span class="material-symbols-outlined !text-xl notranslate" translate="no">language</span>
-              <span x-text="currentLanguage">EN</span>
+              <span x-text="currentLanguage"></span>
               <!-- Ícone expandir protegido -->
               <span class="material-symbols-outlined !text-xl transition-transform notranslate" translate="no" :class="{ 'rotate-180': open }">expand_more</span>
             </button>
@@ -718,4 +718,5 @@
       </div>
     </div>
   </body>
+
 </html>
